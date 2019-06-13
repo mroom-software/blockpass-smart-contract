@@ -20,7 +20,10 @@ public:
     }
 
     [[eosio::action]]
-    void add(name owner, string notes);
+    void add(name owner, string data);
+
+    [[eosio::action]]
+    void del(name owner);
 
 private:
     struct [[eosio::table]] note
