@@ -20,7 +20,7 @@ public:
     }
 
     [[eosio::action]]
-    void add(name owner, string data);
+    void add(name owner, string data, uint64_t timestamp);
 
     [[eosio::action]]
     void del(name owner);
@@ -30,6 +30,7 @@ private:
     {
         name owner;
         string data;
+        uint64_t timestamp;
         uint64_t primary_key() const { return owner.value; }
     };
 

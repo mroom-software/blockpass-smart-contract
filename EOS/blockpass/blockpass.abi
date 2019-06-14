@@ -14,6 +14,10 @@
                 {
                     "name": "data",
                     "type": "string"
+                },
+                {
+                    "name": "timestamp",
+                    "type": "uint64"
                 }
             ]
         },
@@ -38,6 +42,10 @@
                 {
                     "name": "data",
                     "type": "string"
+                },
+                {
+                    "name": "timestamp",
+                    "type": "uint64"
                 }
             ]
         }

@@ -1,6 +1,6 @@
 #include "blockpass.hpp"
 
-void blockpass::add(name owner, string data)
+void blockpass::add(name owner, string data, uint64_t timestamp)
 {
     require_recipient(owner);
     require_auth(owner);
@@ -11,12 +11,14 @@ void blockpass::add(name owner, string data)
     if (lookup != nt.end()) {
         nt.modify(lookup, owner, [&](auto& n) {
             n.data = data;
+            n.timestamp = timestamp;
         });
 
     } else {
         nt.emplace(owner, [&](auto& n) {
             n.owner = owner;
             n.data = data;
+            n.timestamp = timestamp;
         });
     }
     
