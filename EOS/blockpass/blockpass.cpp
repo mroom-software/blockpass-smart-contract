@@ -29,6 +29,8 @@ void blockpass::del(name owner)
     require_recipient(owner);
     require_auth(owner);
 
+    check(_self == owner, "must be owner of this data");
+
     notes nt(_self, owner.value);
     auto lookup = nt.find(owner.value);
     nt.erase(lookup);
